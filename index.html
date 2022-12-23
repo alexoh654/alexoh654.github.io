@@ -2,7 +2,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script async src="https://api.beta.glia.com/salemove_integration.js"></script>
+   <!-- <script async src="https://api.beta.glia.com/salemove_integration.js"></script> -->
+    <script> var installGlia = function(siteId, callback) {
+  var gliaIntegrationScriptUrl = 'https://api.beta.glia.com/salemove_integration.js?site_id=' + siteId;
+  var scriptElement = document.createElement('script');
+
+  scriptElement.async = 1;
+  scriptElement.src = gliaIntegrationScriptUrl;
+  scriptElement.type = 'text/javascript';
+  if (typeof(callback) === 'function') {
+    scriptElement.addEventListener('load', callback);
+  }
+  
+  document.body.append(scriptElement);
+};
+
+/* 
+siteId is a UUID for your site that needs to be requested from your Client Success Manager 
+or via our Service Desk https://salemove.atlassian.net/servicedesk/customer/portal/1 
+*/
+var siteId = '39648833-a899-47ee-b408-1ad899d4a80a'; 
+
+installGlia(siteId, function(){
+  // Any post install configurati </script>
+    
   </head>
 <body style="background-color:blue;">>
 
