@@ -3,6 +3,18 @@
 <html>
   <head>
    <script async src="https://api.glia.com/salemove_integration.js"></script>
+    <script>
+  const intervalId = setInterval(() => {
+    if (window.sm) {
+      clearInterval(intervalId);
+      window.sm.getApi({version: 'v1'}).then(api => {
+        api.visitorApp.setChatMessageRenderer(message => {
+          /* custom renderer code */
+        });
+      });
+    }
+  }, 10);
+</script>
     
    <style>
    .block {
